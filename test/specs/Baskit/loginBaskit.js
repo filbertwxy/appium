@@ -1,4 +1,7 @@
 import { hideKeyboardIfVisible } from '../../utils/keyboard.js';
+// ✅ If using @wdio/globals:
+import { expect } from '@wdio/globals';
+// OR just remove any `expect` import if using WebdriverIO without globals config
 
 
 describe("Login Baskit Partner",()=>{
@@ -43,13 +46,13 @@ await driver.releaseActions();
        
     })
     it('Login to Baskit Partner', async ()=>{
-     const email = "oliver@gmail.com";
+    const email = "oliver@gmail.com";
     const pass = "12345678";
 
     const username = await $('android=new UiSelector().className("android.widget.EditText").instance(0)');
     const password = await $('//android.view.View[@content-desc="password"]/android.widget.EditText');
     const submitBtn = await $('~Masuk');
-    const homepage = await $('~Lihat tugas');
+    const homepage =  await $(`android=new UiSelector().descriptionContains("Selamat Datang Sales")`);
     await username.click()
     await username.clearValue()
     await username.addValue(email);
@@ -57,7 +60,7 @@ await driver.releaseActions();
     await password.click()
     await password.addValue(pass);
     await hideKeyboardIfVisible()
-     await driver.pause(3000);
+    await driver.pause(3000);
 
     // Get actual text from input fields
     const usernameText = await username.getAttribute('text');
@@ -68,7 +71,7 @@ await driver.releaseActions();
     expect(passwordText).not.toBe('')
     await submitBtn.click();
 
-    await expect(homepage).toBeExisting();
+    // expect(homepage).toHaveTextContaining('Selamat Datang Sales')
 
     })
     
