@@ -1,24 +1,30 @@
 {
-    "compilerOptions": {
-        "sourceMap": false,
-        "target": "es2020",
-        "module": "NodeNext",
-        "moduleResolution": "Node16",
-        "removeComments": true,
-        "noImplicitAny": true,
-        "strictPropertyInitialization": true,
-        "strictNullChecks": true,
-        "types": [
-            "node",
-            "@wdio/types",
-            "@wdio/globals/types",
-            "@wdio/mocha-framework",
-            "expect-webdriverio",
-            "@wdio/sauce-service",
-        ]
-    },
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "NodeNext",
+    "moduleResolution": "Node16",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "removeComments": true,
+    "sourceMap": false,
+    "allowJs": true,                    // ✅ Optional - allow JS if you still have helper files in JS
+    "esModuleInterop": true,
+    "noEmit": true,     
+                // ✅ Helpful for Node-style imports
+    "types": [
+      "node",
+      "@wdio/types",
+      "@wdio/globals/types",            // ✅ Gives you global `browser`, `expect`, etc.
+      "@wdio/mocha-framework",
+      "expect-webdriverio",
+      "@wdio/sauce-service"
+    ]
+  },
     "include": [
         "./config/**/*.ts",
-        "./tests/**/*.ts"
-    ]
+        "./tests/**/*.ts",
+         "./test/**/*.ts"     
+, "test/specs/Baskit/loginBaskit.js", "test/utils/keyboard.js"    ]
 }
