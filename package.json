@@ -26,6 +26,7 @@
     ],
     "type": "module",
     "scripts": {
+        "android:baskit":"wdio run ./wdio.conf.js --spec test/specs/Baskit/createTransactions.js",
         "android.browserstack.app": "wdio run ./config/browserstack/wdio.android.bs.app.conf.ts",
         "android.sauce.emulators.app.eu": "REGION=eu  wdio config/saucelabs/wdio.android.emulators.app.conf.ts",
         "android.sauce.emulators.app.us": "wdio run config/saucelabs/wdio.android.emulators.app.conf.ts",
